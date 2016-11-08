@@ -1,0 +1,14 @@
+
+<div class="page-header">
+  <span><h2>Campaigns</h2></span>
+  <hr>
+  <span><%= link_to "New", new_campaign_path %></span>
+</div>
+
+
+
+<% @campaigns.each do |camp| %>
+  <h3> <%= link_to camp.title, campaign_path(camp.id) %> </h3>
+  <p> <%= camp.description %> </p>
+  <hr>
+<% end %>

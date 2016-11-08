@@ -9,6 +9,21 @@
   </head>
 
   <body>
-    <%= yield %>
+    <nav class="navbar navbar-default navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <%= link_to "Armory", campaigns_path, class:"navbar-brand" %>
+        </div>
+        <ul class="nav navbar-nav">
+          <li><%= link_to "Sign Up", signup_path, class: "btn btn-default navbar-btn"%></li>
+        </ul>
+      </div>
+    </nav>
+
+
+
+    <div class="container-fluid">
+      <%= yield %>
+    </div>
   </body>
 </html>
