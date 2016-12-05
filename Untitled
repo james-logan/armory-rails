@@ -1,0 +1,27 @@
+notes::::
+
+cookies/sessions
+
+so, we created a Sessions controller.
+
+but... we don't want sessions routes. We want login/logout routes.
+so we make accept GET/POST to login. And DELETE to logout.
+
+OUR sessions controller does not have a model to go with it... so we can't do
+
+form_for @session
+
+Doesn't work. We have to do...
+
+form_for :session, url: login_path
+
+To tell it what key the data being sent will be sent under. Now to make the form work::::
+
+
+We need to define first what happens on INVALID submissions.
+
+Check for user in the User model.
+
+Check if the user exists, then use the authenticate method on our User model (given to us by the has_secure_password). If either of those fail we write a flash (flash.now not just a regular flash, because regular flashes are designed to persist until one request has been made. Flash.now is designed specifically for render responses). Normally you would send a redirect response and the browser would sent at new get request, so the Flash would show up there (and that would be its one request).
+
+NOW we are going to make the form work for valid credentials. YAYAYAYAYAYA
